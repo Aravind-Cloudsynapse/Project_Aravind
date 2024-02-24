@@ -39,7 +39,7 @@ test {
     useJUnitPlatform()
 }
 
-sonarqube {
+sonar {
     properties {
         property 'sonar.host.url', 'http://13.200.253.92:9000'
         property 'sonar.login', 'squ_816bc6bc88a45c81588a885a47428ac96bec5731'
