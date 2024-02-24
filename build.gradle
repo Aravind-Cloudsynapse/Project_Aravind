@@ -1,9 +1,9 @@
 plugins {
-	id 'org.springframework.boot' version '2.5.4'
-	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-	id 'java'
-	id 'war'
-	id 'org.sonarqube' version '4.4.1.3373'
+    id 'org.springframework.boot' version '2.5.4'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id 'war'
+    id 'org.sonarqube' version '4.4.1.3373'
 }
 
 group = 'com.example'
@@ -18,22 +18,31 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	classpath'org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:4.4.1.3373'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 test {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }
 
+buildscript {
+    repositories {
+        maven {
+            url = uri("https://plugins.gradle.org/m2/")
+        }
+    }
+    dependencies {
+        classpath 'org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:4.4.1.3373'
+    }
+}
 
-sonar {
+sonarqube {
     properties {
         property 'sonar.host.url', 'http://13.200.253.92:9000'
         property 'sonar.login', 'squ_816bc6bc88a45c81588a885a47428ac96bec5731'
-	property 'sonar.gradle.skipCompile', 'true'
+        property 'sonar.gradle.skipCompile', 'true'
     }
 }
