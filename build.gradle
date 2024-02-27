@@ -41,7 +41,7 @@ test {
 
 sonar {
     properties {
-        property 'sonar.host.url', 'http://13.200.253.92:9000'
+        property 'sonar.host.url', 'http://3.110.31.220:9000'
         property 'sonar.login', 'squ_816bc6bc88a45c81588a885a47428ac96bec5731'
         property 'sonar.gradle.skipCompile', 'true'
     }
